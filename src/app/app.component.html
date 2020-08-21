@@ -1,0 +1,92 @@
+<div class="container-fluid px-0 m-0">
+  <div class="row">
+<div class="logo col-md-2">
+
+    <span class="navbar-brand mb-0 h1">
+    <img width="220" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS9IuIKAI-HB22yZPVGllaVx51GcxetrijiYPRQdyvjlejQNXnmiQ9VNxvNjcGQk5wIdiR1L-GK2522tMU9_u07dQ&usqp=CAU&ec=45690271"/>
+    </span>
+</div>    
+<div class="col-md-6">
+    
+    <h1 class="text-dark float-right display-3">Fitness  App</h1>
+  
+</div>
+
+</div>
+<div class="row">
+  
+<div class="col-md-12">
+<nav class="navbar navbar-expand-md navbar-light bg-dark">
+
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+  
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto" >
+
+        <li class="nav-item mx-2">
+          <button class="btn btn-info" (click)="landingpage()">Home</button>
+        </li>
+
+        <li class="nav-item mx-2">
+          <button class="btn btn-info" (click)="placeAppointment()">Place Appointment</button>
+        </li>
+
+        <li class="nav-item mx-2"> 
+         <button class="btn btn-info" (click)="viewAppointment()">View Appointment</button>
+        </li>
+
+        <li class="nav-item mx-2"> 
+          <button class="btn btn-info" >Search Appointment</button>
+         </li>
+
+        <li class="nav-item mx-2">
+          <button class="btn btn-info" (click)="contactUspage()">Contact Us</button>
+        </li>
+        
+      </ul>
+    </div>
+
+  
+</nav>
+</div>
+</div>
+</div>
+<div class="sidebar">
+  <div class="row">
+    
+  <div class=" col-md-2">
+  <div class="container h-100  py-5 px-5">
+
+    <div class="btn-group-vertical">
+         
+      <button  class="btn btn-secondary btn-block" (click)="landingpage()">Home</button><br>
+    
+  
+      <button  class="btn btn-secondary btn-block" (click)="placeAppointment()">Place Appointment</button><br>
+    
+    
+      <button  class="btn btn-secondary btn-block" (click)="viewAppointment()">View Appointment</button><br>
+    
+      <button  class="btn btn-secondary btn-block" >Search Appointment</button><br>
+    
+   
+      <button  class="btn btn-secondary btn-block" (click)="contactUspage()">Contact Us</button>
+  
+  </div>
+
+  
+</div>
+</div>
+
+<div class="col-12 col-sm-10">
+<router-outlet></router-outlet>
+
+</div>
+  
+</div>
+ 
+</div>

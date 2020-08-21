@@ -1,0 +1,468 @@
+<div class="container m-5">
+  
+  <form
+    name="fitnessForm"
+    (ngSubmit)="onSubmit()"
+    [formGroup]="fitnessForm"
+  >
+  <div class="row">
+    <div class="form-group col-md-4">
+      <label for="first_name">First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="firstname"
+        id="first_name"
+        [ngClass]="{
+          'is-invalid':
+            fitnessForm.get('firstname').touched &&
+            fitnessForm.get('firstname').invalid
+        }"
+        autofocus
+      />
+
+      <div
+        *ngIf="
+          fitnessForm.get('firstname').touched &&
+          fitnessForm.get('firstname').invalid
+        "
+        class="invalid-feedback"
+      >
+        <div *ngIf="fitnessForm.get('firstname').errors.required">
+          First Name is required
+        </div>
+        <div *ngIf="fitnessForm.get('firstname').errors?.pattern">
+          First Name should not contain number or symbol
+        </div>
+      </div>
+
+    
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="last_name">Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="lastname"
+        id="last_name"
+        [ngClass]="{
+          'is-invalid':
+            fitnessForm.get('lastname').touched &&
+            fitnessForm.get('lastname').invalid
+        }"
+      />
+
+      <div
+        *ngIf="
+          fitnessForm.get('lastname').touched &&
+          fitnessForm.get('lastname').invalid
+        "
+        class="invalid-feedback"
+      >
+        <div *ngIf="fitnessForm.get('lastname').errors.required">
+          Last Name is required
+        </div>
+        <div *ngIf="fitnessForm.get('lastname').errors?.pattern">
+          Last Name should not contain number or symbol
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+  
+    <div class="form-group col-md-8">
+      <label for="email">Email</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="email"
+        id="email"
+        [ngClass]="{
+          'is-invalid':
+            fitnessForm.get('email').touched &&
+            fitnessForm.get('email').invalid
+        }"
+      />
+
+      <div
+        *ngIf="
+          fitnessForm.get('email').touched &&
+          fitnessForm.get('email').invalid
+        "
+        class="invalid-feedback"
+      >
+        <div *ngIf="fitnessForm.get('email').errors.required">
+          Email is required
+        </div>
+        <div *ngIf="fitnessForm.get('email').errors?.pattern">
+          Email is invalid 
+        </div>
+      </div>
+
+      <small id="first_name_help" class="form-text text-muted"
+      >We'll never share your email with anyone else.</small
+    >
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="form-group col-md-4">
+      <label for="phonenumber">Phone number</label>
+      <input
+        type="tel"
+        class="form-control"
+        formControlName="phonenumber"
+        id="phonenumber"
+        [ngClass]="{
+          'is-invalid':
+            fitnessForm.get('phonenumber').touched &&
+            fitnessForm.get('phonenumber').invalid
+        }"
+      />
+
+      <div
+        *ngIf="
+          fitnessForm.get('phonenumber').touched &&
+          fitnessForm.get('phonenumber').invalid
+        "
+        class="invalid-feedback"
+      >
+        <div *ngIf="fitnessForm.get('phonenumber').errors.required">
+          Phone number is required
+        </div>
+        <div *ngIf="fitnessForm.get('phonenumber').errors?.pattern">
+          Phone number should only contain number
+        </div>
+        <div *ngIf="fitnessForm.get('phonenumber').errors?.min">
+          Phone number should contain minimum 10 numbers
+        </div>
+        <div *ngIf="fitnessForm.get('phonenumber').errors?.max">
+          Phone number should contain maximum 10 numbers
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-2">
+      <label for="age">Age </label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="age"
+        id="age"
+        [ngClass]="{
+          'is-invalid':
+            fitnessForm.get('age').touched &&
+            fitnessForm.get('age').invalid
+        }"
+      />
+
+      <div
+        *ngIf="
+          fitnessForm.get('age').touched &&
+          fitnessForm.get('age').invalid
+        "
+        class="invalid-feedback"
+      >
+        <div *ngIf="fitnessForm.get('age').errors.required">
+          Age is required
+        </div>
+        <div *ngIf="fitnessForm.get('age').errors?.pattern">
+          Age should only contain number
+        </div>
+        <div
+          *ngIf="
+            fitnessForm.get('age').errors?.min ||
+            fitnessForm.get('age').errors?.max
+          "
+        >
+          Age must be between 19 to 59
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row"> 
+
+    <div class="form-group col-md-4">
+      <label for="trainer">Trainer preference </label>
+
+      <select
+        class="cutom-select"
+        formControlName="trainerpreference"
+        id="trainer"
+        class="form-control"
+      >
+        
+        <option value="male" selected="true">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+ 
+
+    <div class="form-group col-md-4">
+      <label for="packages">Package </label>
+
+      <select
+        class="cutom-select"
+        formControlName="packages"
+        id="packages"
+        class="form-control"
+      >
+        <option value="500" selected="true">Basic Package / 500rs </option>
+        <option value="1000">Intermediate Package / 1000rs</option>
+        <option value="1500">Advance Package / 2000rs</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <label for="inr">INR </label>
+
+      <input
+        type="number"
+        class="form-control"
+        formControlName="inr"
+        id="inr"
+        
+      />
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="paisa">Paisa </label>
+
+      <input
+        type="number"
+        class="form-control"
+        formControlName="paisa"
+        id="paisa"
+        
+      />
+    </div>
+
+  </div>
+
+
+    
+    <div class="row">
+      <div class="form-group col-md-8">
+        <fieldset>
+            <legend>Address</legend>
+
+            <input
+                    type="text"
+                    placeholder="Type address"
+                    class="form-control"
+                    formControlName="streetaddress"
+                    [ngClass]="{
+                      'is-invalid':
+                        fitnessForm.get('streetaddress').touched &&
+                        fitnessForm.get('streetaddress').invalid
+                    }"
+                  />
+
+        </fieldset>
+        
+        <div
+          *ngIf="
+            fitnessForm.get('streetaddress').touched &&
+            fitnessForm.get('streetaddress').invalid
+          "
+          class="invalid-feedback"
+        >
+          <div *ngIf="fitnessForm.get('streetaddress').errors.required">
+            Address is required
+          </div>
+
+
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-4">
+        <label for="country">Country </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="country"
+          id="country"
+          [ngClass]="{
+            'is-invalid':
+              fitnessForm.get('country').touched &&
+              fitnessForm.get('country').invalid
+          }"
+        />
+  
+        <div
+          *ngIf="
+            fitnessForm.get('country').touched &&
+            fitnessForm.get('country').invalid
+          "
+          class="invalid-feedback"
+        >
+          <div *ngIf="fitnessForm.get('country').errors.required">
+            country is required
+          </div>
+        </div>
+      </div>
+  
+
+      <div class="form-group col-md-4">
+        <label for="state">State </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="state"
+          id="state"
+          [ngClass]="{
+            'is-invalid':
+              fitnessForm.get('state').touched &&
+              fitnessForm.get('state').invalid
+          }"
+        />
+  
+        <div
+          *ngIf="
+            fitnessForm.get('state').touched &&
+            fitnessForm.get('state').invalid
+          "
+          class="invalid-feedback"
+        >
+          <div *ngIf="fitnessForm.get('state').errors.required">
+            state is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+            <div class="form-group col-md-4">
+        <label for="city">City </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="city"
+          id="city"
+          [ngClass]="{
+            'is-invalid':
+              fitnessForm.get('city').touched &&
+              fitnessForm.get('city').invalid
+          }"
+        />
+  
+        <div
+          *ngIf="
+            fitnessForm.get('city').touched &&
+            fitnessForm.get('city').invalid
+          "
+          class="invalid-feedback"
+        >
+          <div *ngIf="fitnessForm.get('city').errors.required">
+            city is required
+          </div>
+        </div>
+      </div>
+  
+      
+      <div class="form-group col-md-4">
+        <label for="pincode">Pincode </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="pincode"
+          id="pincode"
+          [ngClass]="{
+            'is-invalid':
+              fitnessForm.get('pincode').touched &&
+              fitnessForm.get('pincode').invalid
+          }"
+        />
+  
+        <div
+          *ngIf="
+            fitnessForm.get('pincode').touched &&
+            fitnessForm.get('pincode').invalid
+          "
+          class="invalid-feedback"
+        >
+          <div *ngIf="fitnessForm.get('pincode').errors.required">
+            pincode is required
+          </div>
+          <div *ngIf="fitnessForm.get('pincode').errors?.pattern">
+            pincode is invalid
+          </div>
+          <div *ngIf="fitnessForm.get('pincode').errors?.min || fitnessForm.get('pincode').errors?.max">
+            pincode must be of 6 numbers
+          </div>
+
+        </div>
+      </div>
+    </div>
+  
+
+    <!-- <div class="form-group">
+            "Ctrl+K, C" or "Ctrl+E, C" 
+
+            <label for="age">Age</label>
+            <input type="text" class="form-control" id="age" >
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" >
+        </div>
+
+        <div class="form-group">
+            <label for="State">State</label>
+            <input type="text" class="form-control" id="State" >
+        </div>
+
+        <div class="form-group">
+            <label for="City">City</label>
+            <input type="text" class="form-control" id="City" >
+        </div>
+
+        <div class="form-group">
+            <label for="Pincode">Pincode</label>
+            <input type="text" class="form-control" id="Pincode" >
+        </div>
+
+        <div class="form-group">
+            <label for="phone no">phone no:</label>
+            <input type="tel" class="form-control" id="phone no" >
+        </div>
+
+        <div class='mt-2'>
+            
+            <label for="trainerPreference"> Trainer Type</label>
+            <select class="custom-select mr-sm-2" id="trainerPreference">
+                <option selected>Trainer preference</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+
+        </div>
+
+        <div class='mt-2'>
+            <label for="package"> Package Type</label>
+            <select class="custom-select mr-sm-2" id="package">
+                <option selected>Trainer preference</option>
+                <option value="15k">15K per month (Bodybuilding) </option>
+                <option value="30k">30K per month (Bodybuilding + yoga)</option>
+                <option value="30k">36K per month (Bodybuilding + yoga + swimming)</option>
+        
+              </select>
+
+        </div>
+        -->
+
+    <div class="mt-3">
+      <button type="submit" class="btn btn-primary btn-block col-md-8">Submit</button>
+    </div>
+  </form>
+</div>
